@@ -8,7 +8,7 @@ public class calculator {
     int n;
     private int num1;
     private int num2;
-    private int res;
+    private static int res;
     public
     // menu options for the user to choose from. It displays the following options:
     static void display()
@@ -31,47 +31,58 @@ public class calculator {
     /**
      * The `addn` function in Java takes two integer parameters and returns their sum.
      */
-    int addn(int num1,int num2)
+    /**
+     * The function `addn` takes two integers as input, adds them together, and prints the result.
+     * 
+     * @param num1 The parameter `num1` is an integer that represents the first number to be added.
+     * @param num2 The parameter `num2` in the `addn` function is an integer that represents the second
+     * number to be added.
+     */
+    static void addn(int num1,int num2)
     {
-        return num1+num2;
+        res=num1+num2;
+        System.out.println("Result is  = "+res);
     }
 
-    /**
-     * This Java function subtracts the second number from the first number and returns the result.
-     * @return The function `subtraction` is returning the result of subtracting `num2` from `num1`.
-     */
-    int subtraction(int num1,int num2)
-    {
-        return num1-num2;
-    }
-    /**
-    * The function "multiplication" takes two integers as input and returns their product.
-    * @return The function `multiplication` returns the result of multiplying `num1` and `num2`.
+    
+   /**
+    * The function performs subtraction of two numbers and prints the result.
+    * 
+    * @param num1 The `num1` parameter represents the first number in the subtraction operation.
+    * @param num2 The parameter `num2` is the second number that will be subtracted from the first
+    * number `num1` in the `subtraction` function.
     */
-    int multiplication(int num1,int num2)
+    static void subtraction(int num1,int num2)
     {
-        return num1*num2;
+        res = num1-num2;
+        System.out.println("Result is = "+res);
     }
     /**
-     * The `division` function in Java attempts to divide two numbers and handles the exception for
-     * division by zero by printing a message and returning 000.
+     * The function "multiplication" takes two integers as input, multiplies them together, and prints
+     * the result.
      * 
-     * @param num1 An integer representing the numerator of the division operation.
-     * @param num2 It seems like you were about to ask for the value of `num2` in the `division`
-     * method. If you provide me with the value of `num2`, I can help you with the division operation.
-     * @return The division method is returning the result of dividing num1 by num2. If an exception
-     * occurs (such as dividing by zero), it will catch the exception, print "Cannot divided by zero",
-     * and return 000.
+     * @param num1 The parameter `num1` is the first integer value that will be multiplied in the
+     * `multiplication` function.
+     * @param num2 The parameter `num2` in the `multiplication` function is an integer representing the
+     * second number that will be multiplied with `num1` to calculate the result.
      */
-    int division(int num1,int num2)
+    static void multiplication(int num1,int num2)
+    {
+        res= num1*num2;
+        System.out.println("Result is = "+res);
+    }
+    
+    // The `division` method in the provided Java code snippet is responsible for performing division
+    // operation between two numbers and handling the scenario where the second number is zero
+    // (division by zero). Here's a breakdown of what the method does:
+    static void division(int num1,int num2)
     {
         try {
-            return num1/num2;
+            res=num1/num2;
+            System.out.println("Result is = "+res);
         } catch (Exception e) {
             // TODO: handle exception
             System.out.println("Cannot divided by zero");
-            
-            return 000;
         }
         
     }
@@ -97,28 +108,26 @@ public class calculator {
         // variable `n`. Here's a breakdown of what each case does:
         switch (n) {
             case 1:
-                result=c.addn(num1,num2);
+                addn(num1,num2);
                 break;
             case 2:
-                result=c.subtraction(num1,num2);
+                subtraction(num1,num2);
                 break;
             case 3:
-                result=c.multiplication(num1,num2);
+                multiplication(num1,num2);
                 break;
             case 4:
-                result=c.division(num1,num2);
+                division(num1,num2);
                 break;
             default:
             System.out.println("exit");
                 System.exit(0);
-                
                 break;
         }
-        System.out.println("result="+result);
             
     }
     else
     System.out.println("Wrong input ");
-    System.exit(0);
+    //System.exit(0);
 }
 }
